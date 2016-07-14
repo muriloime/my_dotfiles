@@ -33,6 +33,10 @@ Plugin 'tpope/vim-abolish'
 "bundler for rails 
 Plugin 'tpope/vim-bundler'
 
+"plugins to facilitate motions
+Plugin 'vim-scripts/argtextobj.vim'
+
+
 
 call vundle#end()
 filetype plugin indent on
