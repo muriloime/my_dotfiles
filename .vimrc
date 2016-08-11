@@ -26,16 +26,25 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 "rails plugin 
 Plugin 'tpope/vim-rails'
+"bundler for rails 
+Plugin 'tpope/vim-bundler'
+"rspec 
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-rake'
+
+"ack to search for patterns
+Plugin 'mileszs/ack.vim'
+
 
 "pluralize, etc 
 Plugin 'tpope/vim-abolish'
 
-"bundler for rails 
-Plugin 'tpope/vim-bundler'
 
 "plugins to facilitate motions
 Plugin 'vim-scripts/argtextobj.vim'
 
+"git 
+Plugin 'gregsexton/gitv'
 
 
 call vundle#end()
@@ -61,6 +70,13 @@ set hlsearch
 "NERDTree configurations 
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+"mappings for rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
