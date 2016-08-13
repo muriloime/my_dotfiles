@@ -63,7 +63,6 @@ syntax on
 set shiftwidth=2
 set tabstop=2
 set expandtab
-set number "show line numbers
 se mouse+=a "allow to copy without line numbers
 
 " Shortcut to rapidly toggle `set list`
@@ -87,6 +86,11 @@ set autoindent " automatically set indent of new line
 set smartindent
 
 set laststatus=2 " show the satus line all the time
+
+" Numbers
+set number
+set numberwidth=5
+set relativenumber 
 
 "###################
 "# Plugin setup 
