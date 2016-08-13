@@ -89,8 +89,31 @@ set laststatus=2 " show the satus line all the time
 
 " Numbers
 set number
-set numberwidth=5
+"set numberwidth=5
 set relativenumber 
+
+""" SYSTEM CLIPBOARD COPY & PASTE SUPPORT
+set pastetoggle=<F2> "F2 before pasting to preserve indentation
+"Copy paste to/from clipboard
+vnoremap <C-c> "*y
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+ 
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
+
+" resize panes
+nnoremap <silent> <Right> :vertical resize +5<cr>
+nnoremap <silent> <Left> :vertical resize -5<cr>
+nnoremap <silent> <Up> :resize +5<cr>
+nnoremap <silent> <Down> :resize -5<cr>
+
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
 
 "###################
 "# Plugin setup 
