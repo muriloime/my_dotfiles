@@ -46,6 +46,9 @@ Plugin 'vim-scripts/argtextobj.vim'
 "git 
 Plugin 'gregsexton/gitv'
 
+"tmux integration 
+Plugin 'christoomey/vim-tmux-navigator'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -159,10 +162,15 @@ set wildignore+=*/tmp/*,*/vendor/*
 "
 "
 
-map <C-h> :call WinMove('h')<cr>
-map <C-j> :call WinMove('j')<cr>
-map <C-k> :call WinMove('k')<cr>
-map <C-l> :call WinMove('l')<cr>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+map <C-H> :call WinMove('h')<cr>
+map <C-J> :call WinMove('j')<cr>
+map <C-K> :call WinMove('k')<cr>
+map <C-L> :call WinMove('l')<cr>
 "Window movement shortcuts
 " move to the window in the direction shown, or create a new windowk
 
