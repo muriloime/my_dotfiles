@@ -84,6 +84,8 @@ set smartcase " case-sensitive if expresson contains a capital letter
 
 set magic " Set magic on, for regex
 
+set clipboard=unnamed "allow to copy to clipboard
+
 
 set autoindent " automatically set indent of new line
 set smartindent
