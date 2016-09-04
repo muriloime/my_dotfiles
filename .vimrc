@@ -16,7 +16,8 @@ Plugin 'easymotion/vim-easymotion'
 "Powerline alternative
 Plugin 'vim-airline/vim-airline'
 
-Plugin 'jpo/vim-railscasts-theme'
+" Pairs of handy bracket mappings
+Plugin 'tpope/vim-unimpaired' 
 
 Plugin 'ervandew/supertab'
 "Surround words lines and blocks with { [ "' EVERYTHING
@@ -25,20 +26,25 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 "rails plugin 
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-"bundler for rails 
 Plugin 'tpope/vim-bundler'
-"rspec 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rake'
+Plugin 'jpo/vim-railscasts-theme'
 
 "ack to search for patterns
 Plugin 'mileszs/ack.vim'
 
+"snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" " Optional:
+Plugin 'honza/vim-snippets'
 
 "pluralize, etc 
 Plugin 'tpope/vim-abolish'
-
 
 "plugins to facilitate motions
 Plugin 'vim-scripts/argtextobj.vim'
@@ -49,6 +55,21 @@ Plugin 'gregsexton/gitv'
 "tmux integration 
 Plugin 'christoomey/vim-tmux-navigator'
 
+
+"run specs, etc 
+Plugin 'tpope/vim-dispatch'
+
+"maximize window with F3
+Plugin 'szw/vim-maximizer'
+
+"personal wiki 
+Plugin 'vimwiki/vimwiki'
+
+"commentary 
+Plugin 'tpope/vim-commentary'
+
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'kana/vim-textobj-user'
 
 call vundle#end()
 filetype plugin indent on
@@ -73,7 +94,7 @@ nmap <leader>l :set list!<CR>
 "
 " Use the same symbols as TextMate for tabstops and EOLs
 "set listchars=tab:▸\ ,eol:¬
-set lcs=tab:>-,eol:<
+"set lcs=tab:>-,eol:<
 
 " search with / faster 
 set incsearch
@@ -120,9 +141,21 @@ nnoremap <silent> <Down> :resize -5<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" set tags directory for goto definition
+set tags=./tags;
+
+" add match to module, class, def, etc using % or ]]
+runtime macros/matchit.vim
+" fix error in NERDTree as per
+" http://superuser.com/questions/387777/what-could-cause-strange-characters-in-vim
+let g:NERDTreeDirArrows=0
+
 "###################
 "# Plugin setup 
 "###################
+
+"adding spec config to dispatch 
+let g:rspec_command = "Dispatch rspec {spec}"
 
 "NERDTree configurations 
 "autocmd vimenter * NERDTree
