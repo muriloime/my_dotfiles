@@ -16,6 +16,7 @@
 	delete-merged = "fc -l () { git checkout --quiet master && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
 	unstage = reset HEAD
 	brs = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	ctags = !.git/hooks/ctags
 [core]
 	autocrlf = input
 	editor = /usr/bin/vim

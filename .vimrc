@@ -142,7 +142,7 @@ nnoremap <silent> <Down> :resize -5<cr>
 nnoremap <leader><leader> <c-^>
 
 " set tags directory for goto definition
-set tags=./tags;
+set tags=./.git/tags;
 
 " add match to module, class, def, etc using % or ]]
 runtime macros/matchit.vim
