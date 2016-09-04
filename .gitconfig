@@ -1,0 +1,34 @@
+[user]
+	name = Murilo Vasconcelos Andrade
+	email = muriloime@gmail.com
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[alias]
+	co = checkout
+	plog = log
+	plog = log
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	br = branch
+	ci = commit
+	st = status
+	delete-merged = "fc -l () { git checkout --quiet master && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
+	unstage = reset HEAD
+	brs = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+[core]
+	autocrlf = input
+	editor = /usr/bin/vim
+[diff]
+	tool = vimdiff
+[merge]
+	tool = p4merge
+[mergetool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+[difftool]
+	prompt = false
+[init]
+	templatedir = ~/.git_template
