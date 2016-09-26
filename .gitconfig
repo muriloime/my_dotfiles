@@ -17,13 +17,33 @@
 	unstage = reset HEAD
 	brs = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
 	ctags = !.git/hooks/ctags
+	glog = log -E -i --grep
+	car = commit --amend --no-edit
+	uncommit = reset --soft HEAD^
+	aa = add --all
+	adp = add --patch
+	b = branch
+	ri = rebase -i
+	sdot = status . --short --branch
+	stat = show --stat
+	si = status --ignored
+	dc = diff --word-diff --cached --color-words
+	df = diff --word-diff --color-words
+	pl = pull
+	plr = pull --rebase
+	rim = git config --global alias.plr \"pull --rebase\" rebase --interactive $(git merge-base master HEAD)\"git config --global alias.riu \"git config --global alias.plr \"pull --rebase\" rebase -i $(git upstream)\"git config --global alias.sl \"log --oneline --decorate --graph -20
+	riu = "git config --global push.default upstream rebase -i "
+	sl = log --oneline --decorate --graph -20
+	slap = log --oneline --decorate --all --graph
+	slp = log --oneline --decorate --graph
+	upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
 [core]
 	autocrlf = input
 	editor = /usr/bin/vim
 [diff]
 	tool = vimdiff
 [merge]
-	tool = p4merge
+	tool = diffmerge
 [mergetool "p4merge"]
     cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
     keepTemporaries = false
@@ -33,3 +53,7 @@
 	prompt = false
 [init]
 	templatedir = ~/.git_template
+[push]
+	default = upstream
+[fetch]
+	prune = true
